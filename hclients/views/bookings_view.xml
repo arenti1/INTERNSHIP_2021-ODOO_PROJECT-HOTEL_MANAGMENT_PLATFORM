@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="bookings_form_view" model="ir.ui.view">
+            <field name="name">bookings.list.form</field>
+            <field name="model">bookings.list</field>
+            <field name="arch" type="xml">
+                <form string="Bookings List Form">
+                    <sheet>
+
+
+
+                        <div class="oe_title">
+                            <label for="booked_date"/>
+                            <h1>
+                                <field name="client_name_id"/>
+                                <field name="client_surname_id"/>
+                            </h1>
+                        </div>
+
+                        <group>
+                            <group>
+                                <field name="hotel_id"/>
+                                <field name="booked_date"/>
+                                <field name="arrival_date"/>
+                                <field name="departure_date"/>
+                                <field name="room_type"/>
+                                <field name="view_id"/>
+                                <field name="number"/>
+                                <field name="nights"/>
+                                <field name="price"/>
+                                <field name="is_cancelled"/>
+                                <field name="cancellation_date"/>
+                            </group>
+                            <group>
+                                <field name="client_name_id"/>
+                                <field name="client_surname_id"/>
+                                <field name="client_phone"/>
+                                <field name="client_email"/>
+                                <field name="current_year"/>
+                                <field name="current_month"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="bookings_tree_view" model="ir.ui.view">
+            <field name="name">Bookings.list.tree</field>
+            <field name="model">bookings.list</field>
+            <field name="arch" type="xml">
+                <tree string="Bookings tree">
+                    <field name="booked_date"/>
+                    <field name="arrival_date"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="bookings_search_view" model="ir.ui.view">
+            <field name="name">Bookings Search View</field>
+            <field name="model">bookings.list</field>
+            <field name="arch" type="xml">
+                <search string="ModelTitle">
+                    <group expand="1" string="Group By">
+                        <filter string="Example Field" name="name" domain="[]"
+                                context="{'group_by':'example_field'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="bookings_calendar" model="ir.ui.view">
+            <field name="name">Bookings.list.calendar</field>
+            <field name="model">bookings.list</field>
+            <field name="arch" type="xml">
+                <calendar string="Bookings Calendar View" date_start="arrival_date" color="client_name_id"><!--color="client_name_id">-->
+                    <field name="client_name_id"/>
+                    <field name="client_surname_id"/>
+                    <field name="room_type"/>
+                    <!--<label for="number"/>
+                    <label for="nights"/>-->
+                    <field name="number"/>
+                    <field name="nights"/>
+                </calendar>
+            </field>
+        </record>
+
+        <!--############################################################-->
+
+        <record id="bookings_list_1" model="ir.actions.act_window">
+            <field name="name">Bookings List</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">bookings.list</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">calendar,tree,form</field>
+            <field name="domain">[('hotel_number','=',1)]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    There is no examples click here to add new ModelTitle.
+                </p>
+            </field>
+        </record>
+
+        <record id="bookings_list_2" model="ir.actions.act_window">
+            <field name="name">Bookings List</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">bookings.list</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">calendar,tree,form</field>
+            <field name="domain">[('hotel_number','=',2)]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    There is no examples click here to add new ModelTitle.
+                </p>
+            </field>
+        </record>
+
+        <record id="bookings_list_3" model="ir.actions.act_window">
+            <field name="name">Bookings List</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">bookings.list</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">calendar,tree,form</field>
+            <field name="domain">[('hotel_number','=',3)]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    There is no examples click here to add new ModelTitle.
+                </p>
+            </field>
+        </record>
+
+        <record id="bookings_list_4" model="ir.actions.act_window">
+            <field name="name">Bookings List</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">bookings.list</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">calendar,tree,form</field>
+            <field name="domain">[('hotel_number','=',4)]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    There is no examples click here to add new ModelTitle.
+                </p>
+            </field>
+        </record>
+
+        <!--#####################################################-->
+
+        <record id="room_tree_view" model="ir.ui.view">
+            <field name="name">room.list.tree</field>
+            <field name="model">room.list</field>
+            <field name="arch" type="xml">
+                <tree string="Rooms tree">
+                    <field name="room_type"/>
+                    <field name="room_image" widget="image" class="oe_avatar"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_tree_view" model="ir.ui.view">
+            <field name="name">View.list.tree</field>
+            <field name="model">view.list</field>
+            <field name="arch" type="xml">
+                <tree string="Views tree">
+                    <field name="view_name"/>
+                    <field name="view_image" widget="image" class="oe_avatar"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="room_list_2" model="ir.actions.act_window">
+            <field name="name">Roomss List</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">room.list</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    There is no examples click here to add new ModelTitle.
+                </p>
+            </field>
+        </record>
+
+        <record id="view_list_2" model="ir.actions.act_window">
+            <field name="name">View List</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">view.list</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    There is no examples click here to add new ModelTitle.
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="hotel_111"
+                  name="Standard Rooms"
+                  sequence="1"
+                  parent="Bookings"
+                  action="room_list_2"/>
+
+
+        <menuitem id="hotel_1111"
+                  name="Standard views"
+                  sequence="1"
+                  parent="Bookings"
+                  action="view_list_2"/>
+
+        <menuitem id="hotel_11"
+                  name="Hotel Skenderbeu"
+                  sequence="1"
+                  parent="bookings_menu"
+                  action="bookings_list_1"/>
+
+        <menuitem id="hotel_22"
+                  name="Hotel Dyrrahu"
+                  sequence="2"
+                  parent="bookings_menu"
+                  action="bookings_list_2"/>
+
+        <menuitem id="hotel_33"
+                  name="Hotel Apollonia"
+                  sequence="3"
+                  parent="bookings_menu"
+                  action="bookings_list_3"/>
+
+        <menuitem id="hotel_44"
+                  name="Hotel Butrinti"
+                  sequence="4"
+                  parent="bookings_menu"
+                  action="bookings_list_4"/>
+
+
+        <menuitem name="Bookings"
+                  id="Bookings"
+                  sequence="0"/>
+
+        <menuitem name="Bookings"
+                  id="bookings_menu"
+                  sequence="0"
+                  parent="Bookings"/>
+
+    </data>
+</odoo>

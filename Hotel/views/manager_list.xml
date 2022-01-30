@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="manager_form_view" model="ir.ui.view">
+            <field name="name">manager.list.form</field>
+            <field name="model">manager.list</field>
+            <field name="arch" type="xml">
+                <form string="Manager List">
+                    <sheet>
+                        <field name="picture" widget="image" class="oe_avatar"/>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name" placeholder="Hello"/>
+                                <field name="surname"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="name" placeholder="Hello"/>
+                                <field name="surname"/>
+                                <field name="age"/>
+                                <field name="gender"/>
+                            </group>
+                            <group>
+                                <field name="phone"/>
+                                <field name="email"/>
+                                <field name="address"/>
+                                <field name="salary"/>
+                                <field name="language"/>
+                            </group>
+                        </group><!--
+                        <button name="send_sms_button"
+                                type="object" class="oe_stat_button" icon="fa-calendar">
+                            <field name="send_sms_func" string="SMS" widget="statinfo"/>
+                        </button>-->
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="manager_tree_view" model="ir.ui.view">
+            <field name="name">manager.list.tree</field>
+            <field name="model">manager.list</field>
+            <field name="arch" type="xml">
+                <tree string="ManagerList">
+                    <field name="name"/>
+                    <field name="surname"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="manager_list_search_view" model="ir.ui.view">
+            <field name="name">manager.list.search</field>
+            <field name="model">manager.list</field>
+            <field name="arch" type="xml">
+                <search string="ManagerListttt ">
+                    <group expand="1" string="Group By">
+                        <filter string="Example Field" name="example_field" domain="[]"
+                                context="{'group_by':'example_field'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="manager_list_act_window" model="ir.actions.act_window">
+            <field name="name">Manager List</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">manager.list</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    There is no examples click here to add new ModelTitle.
+                </p>
+            </field>
+        </record>
+
+        <record id="manager1_server_action" model="ir.actions.server">
+            <field name="name">Manager 1 Server Action</field>
+            <field name="model_id" ref="Hotel.model_manager_list"/>
+            <field name="state">code</field>
+            <field name="code">action = model.get_manager1()</field>
+        </record>
+
+        <record id="manager2_server_action" model="ir.actions.server">
+            <field name="name">Manager 2 Server Action</field>
+            <field name="model_id" ref="Hotel.model_manager_list"/>
+            <field name="state">code</field>
+            <field name="code">action = model.get_manager2()</field>
+        </record>
+
+        <record id="manager3_server_action" model="ir.actions.server">
+            <field name="name">Manager 3 Server Action</field>
+            <field name="model_id" ref="Hotel.model_manager_list"/>
+            <field name="state">code</field>
+            <field name="code">action = model.get_manager3()</field>
+        </record>
+
+        <record id="manager4_server_action" model="ir.actions.server">
+            <field name="name">Manager 4 Server Action</field>
+            <field name="model_id" ref="Hotel.model_manager_list"/>
+            <field name="state">code</field>
+            <field name="code">action = model.get_manager4()</field>
+        </record>
+
+        <menuitem name="Manager Info"
+                  id="manager_1"
+                  sequence="1"
+                  parent="hotel_1"
+                  action="manager1_server_action"/>
+
+        <menuitem name="Manager Info"
+                  id="manager_2"
+                  sequence="1"
+                  parent="hotel_2"
+                  action="manager2_server_action"/>
+
+        <menuitem name="Manager Info"
+                  id="manager_3"
+                  sequence="1"
+                  parent="hotel_3"
+                  action="manager3_server_action"/>
+
+        <menuitem name="Manager Info"
+                  id="manager_4"
+                  sequence="1"
+                  parent="hotel_4"
+                  action="manager4_server_action"/>
+    </data>
+</odoo>

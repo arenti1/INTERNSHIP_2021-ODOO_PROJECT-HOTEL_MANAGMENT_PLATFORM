@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="report_invoice" model="ir.actions.report">
+        <field name="name">Invoice Card</field>
+        <field name="model">invoice.list</field>
+        <field name="report_type">qweb-html</field>
+        <field name="report_name">hclients.invoice_template123</field>
+        <field name="report_file">hclients.invoice_template123</field>
+        <field name="binding_model_id" ref="model_invoice_list"/>
+        <field name="binding_type">report</field>
+    </record>
+
+</odoo>

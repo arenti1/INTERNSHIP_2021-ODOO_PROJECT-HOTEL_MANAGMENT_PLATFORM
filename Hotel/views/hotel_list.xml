@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="hotel_list_form_view" model="ir.ui.view">
+            <field name="name">hotel.list.form</field>
+            <field name="model">hotel.list</field>
+            <field name="arch" type="xml">
+                <form string="List">
+                    <sheet>
+                        <field name="picture" widget="image" class="oe_avatar"/>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name" placeholder="Hotel Name"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="country"/>
+                                <field name="city"/>
+                                <field name="manager"/>
+
+                            </group>
+                            <group>
+                                <field name="rooms"/>
+                                <field name="postal_code"/>
+                                <field name="is_active" placeholder="is currently active"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="hotel_list_tree_view" model="ir.ui.view">
+            <field name="name">hotel.list.tree</field>
+            <field name="model">hotel.list</field>
+            <field name="arch" type="xml">
+                <tree string="List">
+                    <field name="name"/>
+                    <field name="city"/>
+                    <field name="is_active"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="hotel_list_search_view" model="ir.ui.view">
+            <field name="name">hotel.list.search</field>
+            <field name="model">hotel.list</field>
+            <field name="arch" type="xml">
+                <search string="List">
+                    <field name="name"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="hotel_list_act_window" model="ir.actions.act_window">
+            <field name="name">Hotel List</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hotel.list</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    There is no examples click here to add new List.
+                </p>
+            </field>
+        </record>
+
+        <!--##############################################-->
+
+        <record id="hotel1_server_action" model="ir.actions.server">
+            <field name="name">Hotel 1 Server Action</field>
+            <field name="model_id" ref="Hotel.model_hotel_list"/>
+            <field name="state">code</field>
+            <field name="code">action = model.get_hotel1()</field>
+        </record>
+
+        <record id="hotel2_server_action" model="ir.actions.server">
+            <field name="name">Hotel 2 Server Action</field>
+            <field name="model_id" ref="Hotel.model_hotel_list"/>
+            <field name="state">code</field>
+            <field name="code">action = model.get_hotel2()</field>
+        </record>
+
+        <record id="hotel3_server_action" model="ir.actions.server">
+            <field name="name">Hotel 3 Server Action</field>
+            <field name="model_id" ref="Hotel.model_hotel_list"/>
+            <field name="state">code</field>
+            <field name="code">action = model.get_hotel3()</field>
+        </record>
+
+        <record id="hotel4_server_action" model="ir.actions.server">
+            <field name="name">Hotel 4 Server Action</field>
+            <field name="model_id" ref="Hotel.model_hotel_list"/>
+            <field name="state">code</field>
+            <field name="code">action = model.get_hotel4()</field>
+        </record>
+
+        <!--##############################################-->
+
+        <menuitem id="hotel_menu"
+                  name="Hotel"
+                  sequence="-1"/>
+
+        <!--#####################################-->
+
+        <menuitem id="hotel_info1"
+                  name="Hotel info"
+                  sequence="0"
+                  parent="hotel_1"
+                  action="hotel1_server_action"/>
+
+        <menuitem id="hotel_info2"
+                  name="Hotel info"
+                  sequence="0"
+                  parent="hotel_2"
+                  action="hotel2_server_action"/>
+
+        <menuitem id="hotel_info3"
+                  name="Hotel info"
+                  sequence="0"
+                  parent="hotel_3"
+                  action="hotel3_server_action"/>
+
+        <menuitem id="hotel_info4"
+                  name="Hotel info"
+                  sequence="0"
+                  parent="hotel_4"
+                  action="hotel4_server_action"/>
+
+        <!--#################################-->
+
+        <menuitem id="hotel_1"
+                  name="Hotel Skenderbeu"
+                  sequence="1"
+                  parent="hotel_menu"/>
+                  <!--action="hotel_list_act_window"/>-->
+
+        <menuitem id="hotel_2"
+                  name="Hotel Dyrrahu"
+                  sequence="2"
+                  parent="hotel_menu"
+                  action="hotel_list_act_window"/>
+
+        <menuitem id="hotel_3"
+                  name="Hotel Apollonia"
+                  sequence="3"
+                  parent="hotel_menu"
+                  action="hotel_list_act_window"/>
+
+        <menuitem id="hotel_4"
+                  name="Hotel Butrinti"
+                  sequence="4"
+                  parent="hotel_menu"
+                  action="hotel_list_act_window"/>
+
+    </data>
+</odoo>
